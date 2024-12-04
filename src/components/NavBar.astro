@@ -5,7 +5,7 @@ import MenuDropdown from "@/components/MenuDropdown";
 const { temperature, weatherTemp, name, country } =
   await climaCampana("campana");
 
-const wetherImg = (temp) => {
+const wetherImg = (temp: "Clear" | "Clouds" | "Mist" | "Rain" | "Snow") => {
   const wetherUrl = {
     Clear: "./clear.png",
     Clouds: "./cloud.png",

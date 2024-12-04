@@ -1,0 +1,111 @@
+---
+const { index, title, description, url } = Astro.props;
+---
+
+<li
+  class="box relative w-[200px] h-[385px] sm:w-[290px] p-5 bg-[#fafafa] shadow-lg shadow-[rgba(255,255,255,.2)] rounded-[20px] m-5 text-center overflow-hidden flex flex-col justify-evenly gap-2 border-2"
+>
+  <div
+    class="icon relative w-[70px] h-[70px] bg-black text-white flex justify-center items-center my-0 mx-auto rounded-full text-[48px] font-bold overflow-hidden"
+  >
+    <span class="relative z-[29]">0{index}</span>
+  </div>
+  <div
+    class="content relative z-[28] text-palette4 flex flex-col justify-between gap-1"
+  >
+    <h3 class="text-[22px] tracking-wide font-semibold">{title}</h3>
+    <p class="line-clamp-5">{description}</p>
+    <a
+      href={url}
+      class="inline-block py-3 border-2 border-palette4 bg-palette7 rounded-xl no-underline text-palette3 mt-[20px] font-bold font-sans"
+      >Saber Mas</a
+    >
+  </div>
+</li>
+
+<style>
+  .icon {
+    transition: 0.5s;
+  }
+
+  .box:hover {
+    & h3 {
+      color: #fafafa;
+    }
+    & p {
+      color: #fafafa;
+    }
+  }
+  .box:nth-child(1) .icon {
+    box-shadow: 0 0 0 0 #505be6;
+    background-color: #505be6;
+  }
+  .box:nth-child(1):hover .icon {
+    box-shadow: 0 0 0 400px #505be6;
+  }
+  .box:nth-child(2) .icon {
+    box-shadow: 0 0 0 0 #271198;
+    background-color: #271198;
+  }
+  .box:nth-child(2):hover .icon {
+    box-shadow: 0 0 0 400px #271198;
+  }
+  .box:nth-child(3) .icon {
+    box-shadow: 0 0 0 0 #001a65;
+    background-color: #001a65;
+  }
+  .box:nth-child(3):hover .icon {
+    box-shadow: 0 0 0 400px #001a65;
+  }
+  .box:nth-child(4) .icon {
+    box-shadow: 0 0 0 0 #121d30;
+    background-color: #121d30;
+  }
+  .box:nth-child(4):hover .icon {
+    box-shadow: 0 0 0 400px #121d30;
+  }
+  .box:nth-child(5) .icon {
+    box-shadow: 0 0 0 0 #224d75;
+    background-color: #224d75;
+  }
+  .box:nth-child(5):hover .icon {
+    box-shadow: 0 0 0 400px #224d75;
+  }
+  .box:nth-child(6) .icon {
+    box-shadow: 0 0 0 0 #4f229e;
+    background-color: #4f229e;
+  }
+  .box:nth-child(6):hover .icon {
+    box-shadow: 0 0 0 400px #4f229e;
+  }
+  .box:nth-child(7) .icon {
+    box-shadow: 0 0 0 0 #9c1fe8;
+    background-color: #9c1fe8;
+  }
+  .box:nth-child(7):hover .icon {
+    box-shadow: 0 0 0 400px #9c1fe8;
+  }
+  .box:nth-child(8) .icon {
+    box-shadow: 0 0 0 0 #4f229e;
+    background-color: #4f229e;
+  }
+  .box:nth-child(8):hover .icon {
+    box-shadow: 0 0 0 400px #4f229e;
+  }
+  .icon::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .box:hover .icon::before {
+    opacity: 1;
+  }
+
+  .box .content {
+    transition: 0.5s;
+  }
+</style>

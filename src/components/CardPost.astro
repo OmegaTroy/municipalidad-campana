@@ -1,0 +1,137 @@
+---
+interface Posts {
+  title: string;
+  descripcion: string;
+  data: string;
+  color: string;
+}
+
+const { posts } = Astro.props;
+const { title, description, img, color, tags } = posts.data;
+---
+
+<li
+  style=`--clr:${color};`
+  class="card px-5 relative flex flex-col md:flex-row justify-between items-center w-full md:w-[80%] rounded-[20px] bg-[rgba(0,0,0,.55)] backdrop-blur p-4 shadow hover:shadow-lg overflow-hidden gap-8"
+>
+  <a
+    href={posts.slug}
+    class="title-hover--img flex md:hidden w-full transition-opacity relative z-10 group text-3xl font-bold hover:[&>svg]opacity-100"
+  >
+    <img
+      src={img}
+      alt="palacio municipal"
+      class="relative z-10 w-full h-44 object-cover rounded-xl"
+    />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="34"
+      height="34"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="absolute top-0 right-0 left-0 bottom-0 m-auto z-10 opacity-0 transition-opacity"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M9 6l6 6l-6 6"></path></svg
+    >
+  </a>
+  <header class="flex flex-col justify-between w-[85%] items-start gap-8">
+    <a
+      href={posts.slug}
+      class=`title-hover transition-opacity relative z-10 group text-xl font-bold hover:[&>svg]opacity-100`
+      >{title}
+    </a>
+
+    <p class="text-limit text-lg text-palette7 relative z-10">{description}</p>
+  </header>
+  <a
+    href={posts.slug}
+    class="title-hover--img md:flex hidden transition-opacity relative z-10 group text-3xl font-bold hover:[&>svg]opacity-100"
+  >
+    <img
+      src={img}
+      alt="palacio municipal"
+      class="relative z-10 w-64 h-44 object-cover rounded-xl"
+    />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="34"
+      height="34"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="absolute top-0 right-0 left-0 bottom-0 m-auto z-10 opacity-0 transition-opacity"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M9 6l6 6l-6 6"></path></svg
+    >
+  </a>
+</li>
+<script>
+  let cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.onmousemove = function (e) {
+      let x = e.pageX - card.offsetLeft;
+      let y = e.pageY - card.offsetTop;
+      card.style.setProperty("--x", x + "px");
+      card.style.setProperty("--y", y + "px");
+    };
+  });
+</script>
+<style>
+  .card::before {
+    content: "";
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background: radial-gradient(var(--clr), transparent, transparent);
+    width: 700px;
+    height: 700px;
+    opacity: 0;
+    transition:
+      0.5s,
+      top 0s,
+      left 0s;
+  }
+  .card:hover::before {
+    opacity: 1;
+  }
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: rgba(20, 20, 20, 0.8);
+    border-radius: 18px;
+  }
+
+  .text-limit {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .title-hover:hover {
+    color: var(--clr);
+    filter: hue-rotate(90deg);
+  }
+
+  .title-hover--img:hover img {
+    filter: brightness(0.5);
+  }
+  .title-hover--img:hover svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    opacity: 1;
+  }
+</style>

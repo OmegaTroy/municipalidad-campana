@@ -1,0 +1,67 @@
+---
+import { climaCampana } from "@/utils/clima";
+import MenuDropdown from "@/components/MenuDropdown";
+
+const { temperature, weatherTemp, name, country } =
+  await climaCampana("campana");
+
+const wetherImg = (temp) => {
+  const wetherUrl = {
+    Clear: "./clear.png",
+    Clouds: "./cloud.png",
+    Mist: "./mist.png",
+    Rain: "./rain.png",
+    Snow: "./snow.png",
+  };
+  return wetherUrl[temp];
+};
+
+const wether = await wetherImg(weatherTemp);
+
+const navLink = [
+  { name: "Gobierno", link: "/gobierno" },
+  { name: "Para El Vecino", link: "/" },
+  { name: "Visitá Campana", link: "/" },
+  { name: "Invertí en Campana", link: "/" },
+  { name: "Trabajo", link: "/" },
+];
+---
+
+<header
+  class="w-[95%] h-16 bg-[rgba(0,0,0,.55)] flex backdrop-blur justify-between items-center fixed px-5 mt-4 top-0 z-50 rounded-lg"
+>
+  <nav class="flex font-sans w-full justify-between">
+    <div class="flex items-center sm:gap-3">
+      <a href="/">
+        <img
+          src="/logo-municipalidad.webp"
+          alt="logo de la municipalidad de campana"
+        />
+      </a>
+      <img src={wether} alt="wether" class="wether h-10 rounded-full" />
+      <div class="flex gap-3 text-center items-center justify-center">
+        <span class="text-base font-bold"
+          >{name} <sup class="font-normal text-xs">{country}</sup></span
+        >
+        <span class="text-sm font-bold">{temperature} <sup>°c</sup></span>
+      </div>
+    </div>
+    <ul class="xl:flex hidden gap-2 items-center">
+      {
+        navLink.map((link) => (
+          <li class="text-center">
+            <a
+              class="text-md hover:bg-[rgba(0,0,0,.5)] px-5 py-2 rounded-lg font-semibold"
+              href={link.link}
+            >
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <ul class="xl:hidden flex">
+      <MenuDropdown client:load />
+    </ul>
+  </nav>
+</header>

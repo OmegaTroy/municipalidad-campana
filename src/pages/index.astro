@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FacebookIcon from "../icons/FacebookIcon.astro";
+import InstagramenIcon from "../icons/InstagramenIcon.astro";
+import TwitterIcon from "../icons/TwitterIcon.astro";
+import CardSection from "@/components/CardSection.astro";
+import CardPost from "@/components/CardPost.astro";
+
+import { getCollection } from "astro:content";
+const posts = await getCollection("posts");
+
+const elements = [
+  {
+    title: "Tasas Municipales",
+    description:
+      "Las tasas municipales son impuestos locales que financian servicios públicos esenciales, como recolección de basura, mantenimiento de calles y seguridad en la comunidad.",
+    url: "/tasas-municipales",
+  },
+  {
+    title: "Compras y Contrataciones",
+    description:
+      "Ser proveedor de un municipio implica ofrecer productos o servicios a la administración local, participando en licitaciones o contratos.",
+    url: "/compras-y-contrataciones",
+  },
+  {
+    title: "Licencias",
+    description:
+      "Obtener la licencia de conducir requiere cumplir con requisitos básicos: presentar documentos, aprobar un examen teórico y práctico",
+    url: "/licencias",
+  },
+  {
+    title: "Habilitaciones",
+    description:
+      "La habilitación de locales exige cumplir normas municipales, presentar documentación, inspecciones y permisos para operar de manera legal y segura.",
+    url: "/habilitaciones",
+  },
+  {
+    title: "Multas",
+    description:
+      "Las multas de tránsito son sanciones por infringir normas viales. Implican el pago de una multa y, en algunos casos, la pérdida de puntos de licencia.",
+    url: "/multas",
+  },
+  {
+    title: "Portal de Autogestion",
+    description:
+      "El Portal de Autogestión permite a los ciudadanos realizar trámites en línea, como pagos, consultas y gestiones sin necesidad de acudir personalmente.",
+    url: "/portal de autogestion",
+  },
+  {
+    title: "Tramites",
+    description:
+      "La Guía de Trámites Municipales ofrece información sobre los procedimientos, requisitos y lugares para realizar gestiones en el municipio.",
+    url: "/tramites",
+  },
+  {
+    title: "Turnos",
+    description:
+      '"Saca tus turnos" permite agendar citas para trámites, servicios o gestiones de manera rápida y organizada, sin esperas innecesarias.',
+    url: "/turnos",
+  },
+];
+---
+
+<Layout title="Municipalidad de Campana">
+  <main
+    class="main-container w-full h-screen text-center flex justify-center items-center"
+  >
+    <section class="flex flex-col text-center gap-5">
+      <h2 class="text-slate-50 text-5xl font-bold main__title">
+        Bienvenidos a Campana
+      </h2>
+      <p class="text-3xl font-medium">
+        Una ciudad para vivir, estudiar, trabajar, enprender y mucho mas
+      </p>
+      <div class="flex w-full justify-center items-center gap-8 text-xl mt-14">
+        <a
+          href="/"
+          class="scalete p-3 bg-[rgba(6,4,7,0.80)] rounded-full text-palette7 border-2 border-palette8"
+        >
+          <FacebookIcon />
+        </a>
+        <a
+          href="/"
+          class="scalete p-3 bg-[rgba(6,4,7,0.80)]
+     rounded-full text-palette7 border-2 border-palette8"
+        >
+          <InstagramenIcon />
+        </a>
+        <a
+          href="/"
+          class="scalete p-3 rounded-full bg-[rgba(6,4,7,0.80)] text-palette7 border-2 border-palette8"
+        >
+          <TwitterIcon />
+        </a>
+      </div>
+    </section>
+  </main>
+  <section class="w-full h-full mt-10">
+    <h3 class="text-4xl font-semibold text-palette8 text-center mb-7">
+      Secciones Utiles
+    </h3>
+    <ul class="flex flex-wrap justify-center">
+      {
+        elements.map((element, index) => (
+          <CardSection
+            title={element.title}
+            index={index + 1}
+            description={element.description}
+            url={element.url}
+          />
+        ))
+      }
+    </ul>
+  </section>
+  <section class="w-full h-full p-5">
+    <h3 class="text-3xl font-bold text-palette8 text-center mb-7">Noticias</h3>
+    <ul class="flex flex-col gap-10">
+      {posts.map((post) => <CardPost posts={post} />)}
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .main-container {
+    position: relative;
+    background: url("./palacio-municipal.webp") center;
+    background-size: cover;
+  }
+
+  .main__title {
+    text-shadow: 0px 3px 6px black;
+  }
+  .scalete {
+    transition: transform 0.5s;
+  }
+  .scalete:hover {
+    transform: scale(1.3);
+    transition: transform 0.5s;
+  }
+</style>

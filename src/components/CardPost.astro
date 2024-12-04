@@ -1,13 +1,6 @@
 ---
-interface Posts {
-  title: string;
-  descripcion: string;
-  data: string;
-  color: string;
-}
-
 const { posts } = Astro.props;
-const { title, description, img, color, tags } = posts.data;
+const { title, description, img, color } = posts.data;
 ---
 
 <li
@@ -75,11 +68,12 @@ const { title, description, img, color, tags } = posts.data;
 <script>
   let cards = document.querySelectorAll(".card");
   cards.forEach((card) => {
-    card.onmousemove = function (e) {
-      let x = e.pageX - card.offsetLeft;
-      let y = e.pageY - card.offsetTop;
-      card.style.setProperty("--x", x + "px");
-      card.style.setProperty("--y", y + "px");
+    const htmlCard = card as HTMLElement; // Aseguramos que `card` es un `HTMLElement`
+    htmlCard.onmousemove = function (e: MouseEvent) {
+      let x = e.pageX - htmlCard.offsetLeft;
+      let y = e.pageY - htmlCard.offsetTop;
+      htmlCard.style.setProperty("--x", `${x}px`);
+      htmlCard.style.setProperty("--y", `${y}px`);
     };
   });
 </script>

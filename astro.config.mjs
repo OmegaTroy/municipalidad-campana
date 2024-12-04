@@ -21,5 +21,6 @@ export default defineConfig({
   ],
 
   output: "hybrid",
+  // @ts-ignore
   adapter: vercel(),
 });

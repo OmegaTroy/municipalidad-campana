@@ -1,6 +1,6 @@
 ---
 const { posts } = Astro.props;
-const { title, description, img, color } = posts.data;
+const { title, description, img, color, date } = posts.data;
 ---
 
 <li
@@ -39,6 +39,12 @@ const { title, description, img, color } = posts.data;
     </a>
 
     <p class="text-limit text-lg text-palette7 relative z-10">{description}</p>
+    <time
+      class="relative z-10 flex items-center font-semibold"
+      datetime={date}
+    >
+      {new Date(date).toLocaleDateString("es-AR")}
+    </time>
   </header>
   <a
     href={posts.slug}

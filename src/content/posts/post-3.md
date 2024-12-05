@@ -1,5 +1,5 @@
 ---
-title: "# Elisa Abella visitó la “Expo Técnica 2024” de la Escuela Luciano Reyes"
+title: "Elisa Abella visitó la “Expo Técnica 2024” de la Escuela Luciano Reyes"
 date: 2024-11-18
 description: El pasado 15 de noviembre, en conmemoración del Día Nacional de la Educación Técnica, la secretaria de Inclusión, Educación y Cultura del Municipio, Elisa Abella, visitó la Expo Técnica 2024 organizada por la Escuela de Educación Secundaria Técnica N° 1 Luciano Reyes.
 tags:

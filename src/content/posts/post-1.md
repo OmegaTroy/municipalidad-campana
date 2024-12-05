@@ -1,6 +1,6 @@
 ---
 title: "Elisa Abella brindó detalles de la Fiesta del Primer Automóvil"
-date: 2024-11-18
+date: 1887-12-01
 description: El sábado 23 de noviembre, vecinos y visitantes podrán disfrutar de uno de los eventos más tradicionales de Campana la Fiesta del Primer Automóvil Argentino.
 tags:
   - Abella

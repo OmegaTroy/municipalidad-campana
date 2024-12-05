@@ -95,7 +95,7 @@ const elements = [
       </div>
     </section>
   </main>
-  <section class="w-full h-full mt-10">
+  <section class="w-full h-full mt-14">
     <h3 class="text-4xl font-semibold text-palette8 text-center mb-7">
       Secciones Utiles
     </h3>
@@ -112,13 +112,15 @@ const elements = [
       }
     </ul>
   </section>
-  <section class="w-full h-full p-5">
+  <section class="w-full h-full mt-14 p-5">
     <h3 class="text-3xl font-bold text-palette8 text-center mb-7">Noticias</h3>
     <ul class="flex flex-col w-full items-center gap-10">
       {posts.map((post) => <CardPost posts={post} />)}
     </ul>
   </section>
-  <article class="w-full h-full p-5 flex justify-center flex-col items-center">
+  <article
+    class="w-full h-full mt-14 p-5 flex justify-center flex-col items-center"
+  >
     <h3 class="text-3xl font-bold text-palette8 text-center mb-7">
       descarga Alerta Campana! para iOS y Android
     </h3>
@@ -134,14 +136,10 @@ const elements = [
         <div class="flex gap-4 mt-5">
           <a
             href="https://play.google.com/store/apps/details?id=com.campanaAlerta&hl=es_AR"
-            noreferrer
-            noopener
             target="_blank">Play Store</a
           >
           <a
             href="https://apps.apple.com/ar/app/campana-alerta/id1281988298"
-            noreferrer
-            noopener
             target="_blank"
           >
             App Store
@@ -150,49 +148,135 @@ const elements = [
       </div>
     </div>
   </article>
+  <section class="w-full h-full mt-14 p-5">
+    <h2 class="text-3xl font-bold text-palette8 text-center mb-7">
+      Conose Campana una Ciudad para
+    </h2>
+    <div class="flex flex-col w-full items-center gap-10">
+      <ul class="flex items-center justify-center flex-wrap gap-5">
+        <li class="relative">
+          <img
+            src="./EUROAMERICA.jpg"
+            alt="conose campana"
+            class="w-96 h-full object-cover rounded-xl"
+          />
+          <div
+            class="absolute top-0 h-full flex flex-col justify-center items-center p-6 bg-[rgba(0,0,0,.5)] text-palette7 text-xl font-semibold gap-7"
+          >
+            <h3 class="text-3xl text-palette7">Invertír en Campana</h3>
+            <span class="text-xl font-light text-white"
+              >Ingresá y sabé por qué invertir en Campana va a ser una muy buena
+              decisión.</span
+            >
+          </div>
+        </li>
+        <li class="relative">
+          <img
+            src="./utn-nuevo.jpg"
+            alt="conose campana"
+            class="w-96 h-full object-cover rounded-xl"
+          />
+          <div
+            class="absolute top-0 h-full flex flex-col justify-center items-center p-6 bg-[rgba(0,0,0,.5)] text-palette7 text-xl font-semibold gap-7"
+          >
+            <h3 class="text-3xl text-palette7">Visitár Campana</h3>
+            <span class="text-xl font-light text-white"
+              >Somos la cuna del primer automóvil. La ciudad que dio origen al
+              asado de tira. Donde se producen os autos y las motos que usa el
+              país. Somos la ciudad del helado más rico y del restaurante de las
+              mejores pastas de la Argentina.</span
+            >
+          </div>
+        </li>
+        <li class="relative">
+          <img
+            src="./globo-aerostatico.jpg"
+            alt="conose campana"
+            class="w-96 h-full object-cover rounded-xl"
+          />
+          <div
+            class="absolute top-0 h-full flex flex-col justify-center items-center p-6 bg-[rgba(0,0,0,.5)] text-palette7 text-xl font-semibold gap-7"
+          >
+            <h3 class="text-3xl text-palette7">
+              Estudiár y capacitate en Campana
+            </h3>
+            <span class="text-xl font-light text-white"
+              >Te acompañamos a terminar el primario y el secundario; brindamos
+              clases de apoyo para alumnos de ambos niveles; te ayudamos a
+              inscribirte y cursar en el CBC de la UBA. También contamos con
+              talleres de oficios tanto tradicionales como digitales.</span
+            >
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="w-full h-full mt-14 p-5 bg-[#101010]">
+    <article class="flex justify-center w-full items-center gap-10">
+      <div class="flex flex-col items-center gap-5">
+        <strong class="text-2xl text-palette8">Palacio Municipal</strong>
+        <ul class="grid grid-row-3 gap-5 text-palette7">
+          <li>Av. Varele 371, Campana, Bs. As. Argentina</li>
+          <li>+54 3489 407500</li>
+          <li>Horarios de atención: Lun - Vie: 8.30 - 15.00</li>
+        </ul>
+      </div>
+      <div class="flex flex-col items-center gap-5">
+        <strong class="text-2xl text-palette8"
+          >Información para descargar</strong
+        >
+        <ul class="grid grid-row-3 gap-5">
+          <li><a href="/">Calendario Fiscal Impositivo</a></li>
+          <li><a href="/">descargá tus Boletas</a></li>
+          <li><a href="/">Digesto Municipal</a></li>
+        </ul>
+      </div>
+    </article>
+    <p class="p-8 text-slate-500 text-lg">© 2024 Campana Municipalidad</p>
+  </footer>
+  <style>
+    .main-container {
+      position: relative;
+      background: url("./palacio-municipal.webp") center;
+      background-size: cover;
+    }
+
+    .main__title {
+      text-shadow: 0px 3px 6px black;
+    }
+    .scalete {
+      transition: transform 0.5s;
+    }
+    .scalete:hover {
+      transform: scale(1.3);
+      transition: transform 0.5s;
+    }
+    .app-card {
+      background: url("./alertaCampana.webp") center;
+      background-size: cover;
+    }
+
+    .app-info {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(rgba(0, 0, 0, 0.863), rgba(0, 0, 0, 0.76));
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      backdrop-filter: blur(15px);
+      scale: 0;
+      transition: 0.5s;
+    }
+
+    .app-card:hover .app-info {
+      scale: 1;
+      transform: rotate(12deg);
+    }
+  </style>
 </Layout>
-
-<style>
-  .main-container {
-    position: relative;
-    background: url("./palacio-municipal.webp") center;
-    background-size: cover;
-  }
-
-  .main__title {
-    text-shadow: 0px 3px 6px black;
-  }
-  .scalete {
-    transition: transform 0.5s;
-  }
-  .scalete:hover {
-    transform: scale(1.3);
-    transition: transform 0.5s;
-  }
-  .app-card {
-    background: url("./alertaCampana.webp") center;
-    background-size: cover;
-  }
-
-  .app-info {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: linear-gradient(rgba(0, 0, 0, 0.863), rgba(0, 0, 0, 0.76));
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    backdrop-filter: blur(15px);
-    scale: 0;
-    transition: 0.5s;
-  }
-
-  .app-card:hover .app-info {
-    scale: 1;
-    transform: rotate(12deg);
-  }
-</style>

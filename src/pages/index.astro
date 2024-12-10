@@ -66,9 +66,7 @@ const elements = [
     class="main-container w-full h-screen text-center flex justify-center items-center"
   >
     <section class="flex flex-col text-center gap-5">
-      <h2 class="text-slate-50 text-5xl font-bold main__title">
-        Bienvenidos a Campana
-      </h2>
+      <h2 class="text-slate-50 font-bold main__title">Bienvenidos a Campana</h2>
       <p class="text-3xl font-medium">
         Una ciudad para vivir, estudiar, trabajar, enprender y mucho mas
       </p>
@@ -243,8 +241,21 @@ const elements = [
     }
 
     .main__title {
+      font-size: 5em;
       text-shadow: 0px 3px 6px black;
+      transition: transform 0.5s ease-in;
+      animation: text-animation 1s ease-in-out;
     }
+
+    @keyframes text-animation {
+      0% {
+        transform: translateY(-250px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
     .scalete {
       transition: transform 0.5s;
     }
